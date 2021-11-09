@@ -22,13 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using Gibbed.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Gibbed.IO;
 namespace FC2MFTConverter
 {
     public class MFTFormat : MFTStruct
@@ -118,7 +116,7 @@ namespace FC2MFTConverter
 
         public static void RebuildTableCharDesc(FileStream output, List<charDesc> charDescList)
         {
-            foreach(charDesc _char in charDescList)
+            foreach (charDesc _char in charDescList)
             {
                 output.WriteValueU16(_char.charID);
                 output.WriteValueS16(_char.widthScale);
@@ -168,7 +166,7 @@ namespace FC2MFTConverter
             ushort[] array = new ushort[0xFFFF + 1];
             Array.Clear(array, 0, array.Length);
             ushort idx = 0;
-            foreach(ushort id in idList)
+            foreach (ushort id in idList)
             {
                 array[id] = idx++;
             }
@@ -179,10 +177,10 @@ namespace FC2MFTConverter
                 {
                     sum += array[j];
                 }
-                if(sum > 0)
+                if (sum > 0)
                 {
                     output.WriteByte(1);
-                    for(int j = i; j < i + 256; j++)
+                    for (int j = i; j < i + 256; j++)
                     {
                         output.WriteValueU16(array[j]);
                     }

@@ -22,21 +22,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BMFONT;
 using Gibbed.IO;
+using System;
+using System.IO;
+using System.Linq;
 using UlitiesFunction;
 
 namespace FC2MFTConverter
 {
     class MFTFunction
     {
-        public static void ConvertMFTtoFNT (string inputMFT, string output)
+        public static void ConvertMFTtoFNT(string inputMFT, string output)
         {
             // load mft
             MFTStruct mft = MFTFormat.LoadMFT(inputMFT);
@@ -118,11 +115,11 @@ namespace FC2MFTConverter
                 MFTStruct.charDesc charMFT = new();
                 charMFT.charID = (ushort)charBMF.id;
 
-                charMFT.widthScale = (short)(charBMF.width * 1);
-                charMFT.heightScale = (short)(charBMF.height * 1);
+                charMFT.widthScale = (short)(charBMF.width <= 1 ? 0 : (charBMF.width - 1));
+                charMFT.heightScale = (short)(charBMF.height <= 1 ? 0 : (charBMF.height - 1));
                 charMFT.xoffset = (short)charBMF.xoffset;
                 charMFT.yoffsetRev = (short)yoffsetRev;
-                charMFT.xadvanceScale = (short)(charBMF.xadvance * 1 + 1);
+                charMFT.xadvanceScale = (short)(charBMF.xadvance * 1);
                 charMFT.UVLeft = UVLeft;
                 charMFT.UVTop = UVTop;
                 charMFT.UVRight = UVRight;
@@ -130,7 +127,7 @@ namespace FC2MFTConverter
                 charMFT.page = (ushort)charBMF.page;
                 mft.charDescList.Add(charMFT);
             }
-            if(mft.charDescList.FindIndex(t => t.charID == 127) < 0)
+            if (mft.charDescList.FindIndex(t => t.charID == 127) < 0)
             {
                 // id = 127
                 MFTStruct.charDesc charMFT = new();
@@ -156,7 +153,7 @@ namespace FC2MFTConverter
             mft.generalInfo.charsCount = (ushort)mft.charDescList.Count();
             mft.idList = new ushort[mft.generalInfo.charsCount];
 
-            for(int i = 0; i < mft.generalInfo.charsCount; i++)
+            for (int i = 0; i < mft.generalInfo.charsCount; i++)
             {
                 mft.idList[i] = (ushort)mft.charDescList[i].charID;
             }
