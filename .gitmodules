@@ -1,6 +1,6 @@
-[submodule "FFDConverter/Gibbed.IO"]
-	path = FFDConverter/Gibbed.IO
+[submodule "FC2MFTConverter/Gibbed.IO"]
+	path = FC2MFTConverter/Gibbed.IO
 	url = https://github.com/gibbed/Gibbed.IO.git
-[submodule "FFDConverter/NDesk.Options"]
-	path = FFDConverter/NDesk.Options
+[submodule "FC2MFTConverter/NDesk.Options"]
+	path = FC2MFTConverter/NDesk.Options
 	url = https://github.com/gibbed/NDesk.Options.git
