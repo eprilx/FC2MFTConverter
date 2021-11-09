@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FC2MFTConverter": {
+      "commandName": "Project",
+      "commandLineArgs": "--fnt2mft -f \"FC2\\farcry2_25.mft\" -b \"segoe.fnt\""
+    }
+  }
+}
