@@ -12,7 +12,7 @@ FC2MFTConverter is a tool used for creating/editing custom bitmap fonts for Far 
 
 ## Test in-game
 
-<img src="sampleImg/menu.png"/>
+<img src="sampleImg/menu2.png"/>
 
 ## Usage
 
