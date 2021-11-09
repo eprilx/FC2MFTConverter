@@ -122,7 +122,7 @@ namespace FC2MFTConverter
                 charMFT.heightScale = (short)(charBMF.height * 1);
                 charMFT.xoffset = (short)charBMF.xoffset;
                 charMFT.yoffsetRev = (short)yoffsetRev;
-                charMFT.xadvanceScale = (short)(charBMF.xadvance * 1);
+                charMFT.xadvanceScale = (short)(charBMF.xadvance * 1 + 1);
                 charMFT.UVLeft = UVLeft;
                 charMFT.UVTop = UVTop;
                 charMFT.UVRight = UVRight;
