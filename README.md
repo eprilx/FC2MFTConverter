@@ -24,7 +24,7 @@ Options:
 ```
 ❄ Convert FNT to MFT (Create new MFT)
 ```
-Usage: FFDConverter --fnt2ffd [OPTIONS]
+Usage: FC2MFTConverter --fnt2mft [OPTIONS]
 Options:
   -f, --originalMFT=VALUE    (required) Original MFT file (*.mft)
   -b, --charDesc=VALUE       (required) Character description file (*.fnt)
@@ -32,7 +32,7 @@ Options:
 ```
 ❄ Convert MFT to FNT
 ```
-Usage: FFDConverter --ffd2fnt [OPTIONS]
+Usage: FC2MFTConverter --mft2fnt [OPTIONS]
 Options:
   -f, --originalMFT=VALUE    (required) Original MFT file (*.mft)
   -o, --NewFNT=VALUE         (optional) Output FNT file
