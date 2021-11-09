@@ -160,9 +160,9 @@ namespace FC2MFTConverter
 
                 if (command == null)
                 {
-                    Console.WriteLine("\nExample: \nFC2MFTConverter -l");
-                    Console.WriteLine("FC2MFTConverter --fnt2mft -v FC5 -f fcz_bold_default.MFT -b arialFC5.fnt -o fcz_bold_default.new.MFT");
-                    Console.WriteLine("FC2MFTConverter --mft2fnt -v FC5 -f fcz_bold_default.MFT -o fcz_bold_default.MFT.fnt");
+                    Console.WriteLine("\nExample:");
+                    Console.WriteLine("FC2MFTConverter --fnt2mft -f farcry2_25.mft -b yahei.fnt -o farcry2_25.mft.new");
+                    Console.WriteLine("FC2MFTConverter --mft2fnt -f farcry2_25.mft -o farcry2_25.mft.fnt");
                     Console.WriteLine("\nMore usage: https://github.com/eprilx/FC2MFTConverter#usage");
                     Console.Write("More update: ");
                     Console.WriteLine("https://github.com/eprilx/FC2MFTConverter/releases");

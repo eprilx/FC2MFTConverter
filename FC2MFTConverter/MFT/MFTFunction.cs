@@ -66,10 +66,10 @@ namespace FC2MFTConverter
 
                 BMFontStruct.charDesc charBMF = new();
                 charBMF.id = charMFT.charID;
-                charBMF.x = x + 1;
-                charBMF.y = y + 1;
-                charBMF.width = width - 1;
-                charBMF.height = height - 1;
+                charBMF.x = x;
+                charBMF.y = y;
+                charBMF.width = width;
+                charBMF.height = height;
                 charBMF.xoffset = charMFT.xoffset;
                 charBMF.yoffset = yoffset;
                 charBMF.xadvance = charMFT.xadvanceScale;
@@ -112,14 +112,14 @@ namespace FC2MFTConverter
 
             foreach (BMFontStruct.charDesc charBMF in bmf.charDescList)
             {
-                (float UVLeft, float UVTop, float UVRight, float UVBottom) = Ulities.getUVmappingFromPoint(charBMF.x - 1, charBMF.y - 1, charBMF.width + 1, charBMF.height + 1, bmf.generalInfo.WidthImg, bmf.generalInfo.HeightImg);
+                (float UVLeft, float UVTop, float UVRight, float UVBottom) = Ulities.getUVmappingFromPoint(charBMF.x, charBMF.y, charBMF.width, charBMF.height, bmf.generalInfo.WidthImg, bmf.generalInfo.HeightImg);
                 int yoffsetRev = Ulities.YoffsetNormalToReverse(charBMF.yoffset, mft.generalInfo.size);
 
                 MFTStruct.charDesc charMFT = new();
                 charMFT.charID = (ushort)charBMF.id;
 
-                charMFT.widthScale = (short)(charBMF.width * 1 );
-                charMFT.heightScale = (short)(charBMF.height * 1 );
+                charMFT.widthScale = (short)(charBMF.width * 1);
+                charMFT.heightScale = (short)(charBMF.height * 1);
                 charMFT.xoffset = (short)charBMF.xoffset;
                 charMFT.yoffsetRev = (short)yoffsetRev;
                 charMFT.xadvanceScale = (short)(charBMF.xadvance * 1);
