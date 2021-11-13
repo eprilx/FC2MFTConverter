@@ -3,7 +3,7 @@ FC2MFTConverter is a tool used for creating/editing custom bitmap fonts for Far 
 
 ## Installation
 
-- Donwload [lastest release](https://github.com/eprilx/FFDConverter/releases).
+- Donwload [lastest release](https://github.com/eprilx/FC2MFTConverter/releases).
 - Run FC2MFTConverter.exe in the cmd
 
 ## Building from source
