@@ -38,7 +38,7 @@ namespace FC2MFTConverter
             public ushort charsCount;
             //public uint WidthImg;
             //public uint HeightImg;
-            public int size;
+            public byte size;
             public string vectorPath;
             public string pixmapFont; // = PixmapFont
             public ushort pagesCount;
@@ -61,6 +61,7 @@ namespace FC2MFTConverter
         {
             public byte[] unkHeader1;
             public byte[] unkHeader2;
+            public byte[] unkHeader3;
             public byte[] unkFooter;
         }
     }

@@ -2,7 +2,7 @@
   "profiles": {
     "FC2MFTConverter": {
       "commandName": "Project",
-      "commandLineArgs": "--fnt2mft -f \"FC2\\farcry2_25.mft\" -b \"yahei.fnt\""
+      "commandLineArgs": "--fnt2mft -f \"AC1\\font.mft\" -b \"yahei.fnt\""
     }
   }
 }

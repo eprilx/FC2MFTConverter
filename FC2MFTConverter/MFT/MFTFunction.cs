@@ -100,7 +100,7 @@ namespace FC2MFTConverter
             // convert infoBMF 2 infoMFT
             //mft.generalInfo.fontName = bmf.generalInfo.face;
             bmf.generalInfo.size = Math.Abs(bmf.generalInfo.size);
-            mft.generalInfo.size = bmf.generalInfo.size;
+            mft.generalInfo.size = (byte)bmf.generalInfo.size;
             mft.generalInfo.charsCount = (ushort)bmf.generalInfo.charsCount;
 
             MFTFormat.RebuildHeader(output, mft.generalInfo, mft.unk);

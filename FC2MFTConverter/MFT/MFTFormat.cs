@@ -69,8 +69,10 @@ namespace FC2MFTConverter
             //uint unk5 = input.ReadValueU32();
             //byte zero1 = input.ReadValueU8();
             unk.unkHeader2 = input.ReadBytes(21);
-            generalInfo.size = input.ReadValueS32();
-            byte zero2 = input.ReadValueU8();
+            //generalInfo.size = input.ReadValueS32();
+            generalInfo.size = input.ReadValueU8();
+            unk.unkHeader3 = input.ReadBytes(4);
+            //byte zero2 = input.ReadValueU8();
             byte sizePixmapFont = input.ReadValueU8(); // = 10
             generalInfo.pixmapFont = input.ReadString(sizePixmapFont);
             generalInfo.charsCount = input.ReadValueU16();
@@ -85,8 +87,8 @@ namespace FC2MFTConverter
             output.WriteValueU32((uint)generalInfo.vectorPath.Length);
             output.WriteString(generalInfo.vectorPath);
             output.WriteBytes(unk.unkHeader2);
-            output.WriteValueS32(generalInfo.size);
-            output.WriteByte(0);
+            output.WriteValueU8(generalInfo.size);
+            output.WriteBytes(unk.unkHeader3);
             output.WriteValueU8((byte)generalInfo.pixmapFont.Length);
             output.WriteString(generalInfo.pixmapFont);
             //output.WriteValueU16(generalInfo.charsCount);
