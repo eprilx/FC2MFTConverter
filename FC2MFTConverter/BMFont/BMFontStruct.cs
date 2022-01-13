@@ -32,6 +32,11 @@ namespace BMFONT
         public List<charDesc> charDescList;
         public List<kernelDesc> kernelDescList;
 
+        public void SortCharDescListById()
+        {
+            this.charDescList.Sort((x, y) => x.id.CompareTo(y.id));
+        }
+
         public BMFontStruct()
         {
             generalInfo = new();

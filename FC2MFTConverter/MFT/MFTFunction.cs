@@ -96,6 +96,7 @@ namespace FC2MFTConverter
 
             // load bmfont
             BMFontStruct bmf = BMFontFormat.Load(BMFpath);
+            bmf.SortCharDescListById();
 
             // convert infoBMF 2 infoMFT
             //mft.generalInfo.fontName = bmf.generalInfo.face;
@@ -127,24 +128,35 @@ namespace FC2MFTConverter
                 charMFT.page = (ushort)charBMF.page;
                 mft.charDescList.Add(charMFT);
             }
-            if (mft.charDescList.FindIndex(t => t.charID == 127) < 0)
+            // id = 127
+            MFTStruct.charDesc charMFT127 = new();
+            int index127 = mft.charDescList.FindIndex(t => t.charID == 127);
+            int index32 = mft.charDescList.FindIndex(t => t.charID == 32);
+            int index;
+            if (index127 >= 0)
             {
-                // id = 127
-                MFTStruct.charDesc charMFT = new();
-                charMFT.charID = 127;
-
-                charMFT.widthScale = 0;
-                charMFT.heightScale = 0;
-                charMFT.xoffset = 0;
-                charMFT.yoffsetRev = 0;
-                charMFT.UVLeft = mft.charDescList[0].UVLeft;
-                charMFT.UVTop = mft.charDescList[0].UVTop;
-                charMFT.UVRight = mft.charDescList[0].UVRight;
-                charMFT.UVBottom = mft.charDescList[0].UVBottom;
-                charMFT.xadvanceScale = 10;
-                charMFT.page = 0;
-                mft.charDescList.Insert(0, charMFT);
+                index = index127;
             }
+            else
+            {
+                index = index32;
+            }
+
+            charMFT127.charID = 127;
+            charMFT127.widthScale = mft.charDescList[index].widthScale;
+            charMFT127.heightScale = mft.charDescList[index].heightScale;
+            charMFT127.xoffset = mft.charDescList[index].xoffset;
+            charMFT127.yoffsetRev = mft.charDescList[index].yoffsetRev;
+            charMFT127.xadvanceScale = mft.charDescList[index].xadvanceScale;
+            charMFT127.UVLeft = mft.charDescList[index].UVLeft;
+            charMFT127.UVTop = mft.charDescList[index].UVTop;
+            charMFT127.UVRight = mft.charDescList[index].UVRight;
+            charMFT127.UVBottom = mft.charDescList[index].UVBottom;
+            charMFT127.page = mft.charDescList[index].page;
+
+            if(index127 >= 0)
+                mft.charDescList.RemoveAt(index127);
+            mft.charDescList.Insert(0, charMFT127);
 
             output.WriteValueU16((ushort)mft.charDescList.Count);
             MFTFormat.RebuildTableCharDesc(output, mft.charDescList);
